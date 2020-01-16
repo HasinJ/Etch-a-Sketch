@@ -3,7 +3,7 @@ Etch A Sketch:
 
 
 
-    1. Follow the instructions atop Odin’s Google Homepage project to setup a git repository for this project.
+    1. Follow the instructions atop Odin’s Google Homepage (https://www.theodinproject.com/courses/web-development-101/lessons/html-css) project to setup a git repository for this project.
     2. Create a webpage with a 16x16 grid of square divs
         1. Create the divs using JavaScript… don’t try making them by hand with copy and pasting in your html file!
         2. Best to put your grid squares inside another “container” div (that one can go directly in your html)
