@@ -11,25 +11,35 @@
       <h1>Etch-a-Sketch</h1>
       <p>By Hasin Choudhury</p>
       <button id="clearBtn">Clear</button>
-      <button type="button" name="button"></button>
+
+      <select>
+        <option>Choose a color</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="black">black</option>
+        <option value="pink">pink</option>
+      </select>
+
     </div>
 
-    <div id="container">
-    </div>
 
     <script>
-      const container = document.getElementById('container');
+
+      const body = document.querySelector('body');
+      let container;
       let divBlock;
       let columns = "";
-      let colorWhenHovered = 'red';
-      let dimension=0;
+      let colorWhenHovered = 'white';
+      let dimensions=0;
 
-      promptDimension();
       createGrid();
 
-      const gridBoxes = container.querySelectorAll('div');
-      gridBoxes.forEach( (box) =>
-        box.addEventListener('mouseenter', (e) => e.target.style.backgroundColor = `${colorWhenHovered}`))
+      const clear = document.getElementById('clearBtn');
+      clear.addEventListener('click', createGrid);
+
+      const choice = document.querySelector('select');
+      choice.addEventListener('change', (e) => colorWhenHovered = e.target.value);
 
 
       function createBlock() {
@@ -37,11 +47,18 @@
         container.appendChild(divBlock);
       }
 
-      function promptDimension() {
-        dimensions = Number(prompt('please enter dimension (one number)', '5')); //for both columns and rows
+      function createContainer() {
+        container = document.getElementById('container');
+        if (container !== null) container.parentNode.removeChild(container);
+        container = document.createElement('div');
+        container.setAttribute('id','container');
+        body.appendChild(container);
       }
 
       function createGrid() {
+        createContainer();
+        dimensions = Number(prompt('please enter dimension (one number)', '5')); //for both columns and rows
+        columns = ""; //empties just in case function is called again
         for (let i=0; i<dimensions; i++) {
           columns += "auto " //allocates columns in grid but doesn't fill them in
           for (let j=0; j<dimensions; j++) { //fills in column
@@ -49,6 +66,14 @@
           }
         }
         container.style.gridTemplateColumns = columns;
+
+        const gridBlocks = container.querySelectorAll('div');
+        gridBlocks.forEach( (box) =>
+          box.addEventListener('mouseenter', (e) =>
+            e.target.style.backgroundColor = `${colorWhenHovered}`
+          )
+        )
+
       }
 
     </script>
