@@ -3,13 +3,18 @@
   background-color: white;
   width: 600px;
   height: 600px;
-  margin: auto;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #container div{ /*each block*/
-  background-color: pink;
+  background-color: white;
   border: 1px solid black;
   text-align: center;
   font-size: 30px;
+}
 
+.heading{
+  text-align: center;
 }
