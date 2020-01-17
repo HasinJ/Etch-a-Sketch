@@ -1,11 +1,12 @@
 #container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
   background-color: white;
-  width: 50%;
+  width: 600px;
+  height: 600px;
+  margin: auto;
 }
 
-#container div{
+#container div{ /*each block*/
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid black;
   text-align: center;

@@ -8,26 +8,29 @@
   <body>
     <div id="container">
 
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>4</div>
-      <div>4</div>
-      <div>4</div>
-      <div>4</div>
-      <div>4</div>
-      <div>4</div>
-      <div>4</div>
 
     </div>
 
     <script>
       const container = document.getElementById('container');
-      for (let i=0; i<16; i++) { //columns
-        for (let j=0; j<16; j++) { //rows
+      let divBlock;
+      let columns = "";
+      let dimensions = Number(prompt('please enter dimension (one number)', '5')); //for both columns and rows
 
+      for (let i=0; i<dimensions; i++) { //columns
+        columns += "auto "
+        for (let j=0; j<dimensions; j++) { //rows
+          createBlock();
         }
+      }
+      container.style.gridTemplateColumns = columns;
+
+      const gridBoxes = 1;
+
+
+      function createBlock() {
+        divBlock = document.createElement('div');
+        container.appendChild(divBlock);
       }
 
     </script>
