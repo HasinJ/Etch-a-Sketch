@@ -25,7 +25,10 @@
       }
       container.style.gridTemplateColumns = columns;
 
-      const gridBoxes = 1;
+      const gridBoxes = container.querySelectorAll('div');
+
+      gridBoxes.forEach( (box) =>
+        box.addEventListener('mouseenter', (e) => console.log(e.target.style.backgroundColor = 'red')))
 
 
       function createBlock() {

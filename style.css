@@ -7,8 +7,9 @@
 }
 
 #container div{ /*each block*/
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: pink;
   border: 1px solid black;
   text-align: center;
   font-size: 30px;
+
 }
