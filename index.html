@@ -6,34 +6,49 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+    <div class="heading">
+      <h1>Etch-a-Sketch</h1>
+      <p>By Hasin Choudhury</p>
+      <button id="clearBtn">Clear</button>
+      <button type="button" name="button"></button>
+    </div>
+
     <div id="container">
-
-
     </div>
 
     <script>
       const container = document.getElementById('container');
       let divBlock;
       let columns = "";
-      let dimensions = Number(prompt('please enter dimension (one number)', '5')); //for both columns and rows
+      let colorWhenHovered = 'red';
+      let dimension=0;
 
-      for (let i=0; i<dimensions; i++) { //columns
-        columns += "auto "
-        for (let j=0; j<dimensions; j++) { //rows
-          createBlock();
-        }
-      }
-      container.style.gridTemplateColumns = columns;
+      promptDimension();
+      createGrid();
 
       const gridBoxes = container.querySelectorAll('div');
-
       gridBoxes.forEach( (box) =>
-        box.addEventListener('mouseenter', (e) => console.log(e.target.style.backgroundColor = 'red')))
+        box.addEventListener('mouseenter', (e) => e.target.style.backgroundColor = `${colorWhenHovered}`))
 
 
       function createBlock() {
         divBlock = document.createElement('div');
         container.appendChild(divBlock);
+      }
+
+      function promptDimension() {
+        dimensions = Number(prompt('please enter dimension (one number)', '5')); //for both columns and rows
+      }
+
+      function createGrid() {
+        for (let i=0; i<dimensions; i++) {
+          columns += "auto " //allocates columns in grid but doesn't fill them in
+          for (let j=0; j<dimensions; j++) { //fills in column
+            createBlock();
+          }
+        }
+        container.style.gridTemplateColumns = columns;
       }
 
     </script>
